@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" content="text/html">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Web Biblioteka opis tag za bolje SEO performanse."/>
+	<meta name="keywords" content="biblioteka, knjige , pisci"/>
+	<meta name="author" content="Kuzic Nenad" />
+	<meta name="copyright" content="Kuzic Nenad" />
+	
+	<title>TiN web biblioteka</title>
+	
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" href="./css/font-awesome.min.css">	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		
+	<script type="text/javascript" src="./js/jquery-3.4.1.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>	
+	<script type="text/javascript" src="./js/knjiga.js"></script>
+</head>
+
+<body onload="getAllKnjiga()">
+<div class="container">
+    <li class="logo">
+       <h1> Web Biblioteka </h1>
+       <h2> Java, Spring, Maven, API, JSON, JS, JQuery, MySQL </h2>
+    </li>
+        
+    <!-- Navigation with dropdown menu -->
+  	<div class="navbar">		
+		<a href="knjige.html">Knjige</a>
+		<a href="clanovi.html">Clanovi</a>
+		<a href="zaduzenja.html">Zaduzenja</a>
+		<div class="dropdown">
+			<button class="dropbtn">Novi Unos
+				<i class="fa fa-caret-down"></i>
+			</button>	
+		<div class="dropdown-content">
+			<a href="dodajKnjigu.html">Knjige</a>
+			<a href="dodajClana.html">Clana</a>
+			<a href="dodajZaduzenje.html">Zaduzenja</a>
+		</div>        	
+		</div> <!-- /dropdown -->
+	</div> <!-- /navigation -->
+	
+    <!-- Main content --> 
+   	<div class="centerBody"> 
+   		<!-- Table generated from JS -->
+            <table id="tblMain">
+            	<thead>
+            		<tr>
+            			<th>ID</th>
+            			<th>ISBN</th>
+            			<th>Naslov</th>
+            			<th>Autor</th>
+            			<th>Kategorija</th>
+            			<th>Godina Izdanja</th>
+            			<th>Izdavac</th>
+            			<th>Tiraz</th>
+            		</tr>    
+            		        	
+            	</thead> 
+            	
+            	<tbody id="knjiga">
+            	
+            	</tbody>     
+            </table> <!-- /table -->
+        </div> <!-- /centerdiv -->
+      
+      <!-- Form to edit entries -->
+     <div class="form-Wrap">
+        <form name="knjigaForm" onSubmit="updateKnjiga()">   
+        	<div id="floatLeft">
+        		<label> ID Knjige: </label>
+        		<input type="text" name="id" id="id" readonly> 
+            	<label> ISBN: </label>
+            	<input type="text" name="isbn" id="isbn" pattern="[-*0-9]{13,17}" title="ISBN ima duzinu od 13 do 17 karaktera, sadrzi samo brojeve i znak -" required>  
+            	<label> Naslov: </label>
+            	<input type="text" name="naslov" id="naslov" pattern="[a-zA-Z0-9À-ž\s]{2,45}" title="Naslov moze da sadrzi samo slova, brojeve i razmake. Duzina od 2 do 45 karaktera." required>
+            	<label> Autor: </label>
+            	<input type="text" name="autor" id="autor" pattern="[a-zA-ZÀ-ž\s]{2,45}" title="Autor moze da sadrzi slova i razmake.  Duzina od 2 do 45 karaktera."  required>  
+            </div>
+            
+            <div id="floatRight">
+            	<label> Kategorija: </label>
+            	<input type="text" name="kategorija" id="kategorija" pattern="[,a-zA-ZÀ-ž\s]{2,45}" title="Kategorija moze da sadrzi slova i razmake.  Duzina od 2 do 45 karaktera."  required>  
+            	<label> Godina izdanja: </label>
+            	<input type="text" name="godina_izdanja" id="godina_izdanja" pattern="[0-9]{4,4}" title="Godina izdanja mora da sadrzi 4 cifre." required>  
+           	 	<label> Izdavacka kuca: </label>
+            	<input type="text" name="izdavacka_kuca" id="izdavacka_kuca" pattern="[a-zA-ZÀ-ž\s]{2,30}" title="Izdavacka kuca moze da sadrzi slova i razmake.  Duzina od 2 do 30 karaktera."  required>  
+            	<label> Tiraz: </label>
+            	<input type="text" name="tiraz" id="tiraz" pattern="[0-9]{1,6}" title="Godina izdanja mora da sadrzi 1-6 cifara." required>  
+            </div>
+            
+        	<div class="kontrole">
+            	<input type="submit" class="izmenaButton" value="Unesi Izmenu">		
+       		</div>            
+        </form> <!-- /form -->
+      	</div> 
+     </div> <!-- /form-Wrap div -->
+      	
+      	<!-- Footer -->
+		<footer id="main-footer">	
+			<div class="footer-social">
+	     		<ul> <!-- social network fa fa icons -->       
+			      <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+			      <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+			      <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+			   </ul>
+		    </div> <!-- /footer-social fa fa -icons -->
+	
+		    <div class="copy">
+		    	<p>Designed and Developed by &copy; 2019 Nenad Kuzic</p>
+		    </div> <!-- /copyrights -->
+		        
+		</footer> <!-- /footer -->
+   	</div> <!-- /container div, wraper -->        
+</body>
+</html>

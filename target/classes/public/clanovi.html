@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" content="text/html">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Web Biblioteka opis tag za bolje SEO performanse."/>
+	<meta name="keywords" content="biblioteka, knjige, znanje"/>
+	<meta name="author" content="Kuzic Nenad" />
+	<meta name="copyright" content="Kuzic Nenad" />
+	
+	<title>TiN web biblioteka</title>
+	
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" href="./css/font-awesome.min.css">	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		
+	<script type="text/javascript" src="./js/jquery-3.4.1.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>	
+	<script type="text/javascript" src="./js/clan.js"></script>
+</head>
+
+<body onload="getAllClan()">
+<div class="container">
+    <li class="logo">
+       <h1> Web Biblioteka </h1>
+       <h2> Java, Spring, Maven, API, JSON, JS, JQuery, MySQL </h2>
+    </li>
+        
+    <!-- Navigation with dropdown menu -->
+  	<div class="navbar">		
+		<a href="knjige.html">Knjige</a>
+		<a href="clanovi.html">Clanovi</a>
+		<a href="zaduzenja.html">Zaduzenja</a>
+		<div class="dropdown">
+			<button class="dropbtn">Novi Unos
+				<i class="fa fa-caret-down"></i>
+			</button>	
+		<div class="dropdown-content">
+			<a href="dodajKnjigu.html">Knjige</a>
+			<a href="dodajClana.html">Clana</a>
+			<a href="dodajZaduzenje.html">Zaduzenja</a>
+		</div>        	
+		</div> <!-- /dropdown -->
+	</div> <!-- /navigation -->
+	
+    <!-- Main content --> 
+   	<div class="centerBody"> 
+   		<!-- Table generated from JS -->
+            <table id="tblMain">
+            	<thead>
+            		<tr>
+            			<th>ID Clana</th>
+            			<th>Ime</th>
+            			<th>Prezime</th>
+            			<th>Telefon</th>
+            			<th>Datum Registracije</th>
+            		</tr>    
+            		        	
+            	</thead> 
+            	
+            	<tbody id="clan">
+            	
+            	</tbody>     
+            </table> <!-- /table -->
+        </div> <!-- /centerdiv -->
+      
+      <!-- Form to edit entries -->
+     <div class="form-Wrap">
+        <form name="knjigaForm" onSubmit="updateClan()">   
+        	<div id="floatLeft">
+        		<label>ID Clana:</label>
+        			<input type="text" name="broj_clana" id="broj_clana" readonly> 
+            	<label>Ime:</label>
+        			<input type="text" name="ime" id="ime" pattern="[a-zA-ZÀ-ž]{2,20}" title="Ime moze da sadrzi samo slova. Duzina od 2 do 20 karaktera." required>
+           		<label>Prezime:</label>
+        			<input type="text" name="prezime" id="prezime" pattern="[a-zA-ZÀ-ž]{2,20}" title="Prezime moze da sadrzi samo slova.  Duzina od 2 do 20 karaktera."  required>  
+            	</div>
+          	
+          	<div id="floatRight">
+          		<label>Telefon:</label>
+        			<input type="text" name="telefon" id="telefon" pattern="[\-*0-9]{9,15}" title="Telefon mora da sadrzi 9 do 15 karaktera. Brojevi i znak -" required>  
+            	<label>Datum Registracije:</label>
+        			<input type="date" name="datum_registracije" id="datum_registracije" required>  
+          	</div>
+        	
+        	<div class="kontrole">
+            	<input type="submit" class="izmenaButton" value="Unesi Izmenu">		
+       		</div>            
+        </form> <!-- /form -->
+      	</div> 
+     </div> <!-- /form-Wrap div -->
+      	
+      	<!-- Footer -->
+		<footer id="main-footer">	
+			<div class="footer-social">
+	     		<ul> <!-- social network fa fa icons -->       
+			      <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+			      <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+			      <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+			   </ul>
+		    </div> <!-- /footer-social fa fa -icons -->
+	
+		    <div class="copy">
+		    	<p>Designed and Developed by &copy; 2019 Nenad Kuzic</p>
+		    </div> <!-- /copyrights -->
+		        
+		</footer> <!-- /footer -->
+   	</div> <!-- /container div, wraper -->        
+</body>
+</html>
